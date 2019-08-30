@@ -1,0 +1,30 @@
+// Copyright 2019, MyCompany.
+// All rights reserved.
+
+syntax = "proto3";
+
+option objc_class_prefix = "MyCompany";
+
+package grpc.route;
+
+service RouteService {
+    rpc invokeBiz (Request) returns (Response) {}
+}
+
+message Meta {
+    string request_id = 1;
+    string language = 2;
+    string timezone = 3;
+    string token = 4;
+}
+
+message Request {
+    Meta meta = 1;
+    string api_name = 2;
+    string data = 3;
+}
+
+message Response {
+    Meta meta = 1;
+    string data = 2;
+}

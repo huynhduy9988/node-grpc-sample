@@ -44,7 +44,7 @@ function invokeBiz(call, callback) {
  */
 function getServer() {
     var server = new grpc.Server();
-    server.addProtoService(routeService.RouteService.service, {
+    server.addService(routeService.RouteService.service, {
         invokeBiz: invokeBiz,
     });
     return server;
